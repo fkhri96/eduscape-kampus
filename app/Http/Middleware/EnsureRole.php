@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Middleware;
 
 use Closure;
@@ -13,13 +12,11 @@ class EnsureRole
         Closure $next,
         string ...$roles
     ): Response {
-        $user = $request->user();
-
-        if (!$user) {
+        if (!$request->user()) {
             return redirect()->route('login');
         }
 
-        if (!in_array($user->role, $roles, true)) {
+        if (!in_array($request->user()->role, $roles, true)) {
             abort(403, 'Kamu tidak memiliki izin mengakses halaman ini.');
         }
 

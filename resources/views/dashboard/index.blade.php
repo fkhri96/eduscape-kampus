@@ -22,7 +22,10 @@
 
             @if ($user->role === 'admin')
                 <div class="text-secondary small mt-4 mb-2">ADMINISTRASI</div>
-                <div class="p-2">👥 &nbsp; Manajemen Pengguna</div>
+                <a href="{{ route('admin.users.index') }}"
+                class="btn btn-light w-100 text-start mb-2">
+                    👥 &nbsp; Manajemen Pengguna
+                </a>
                 <div class="p-2">🏛️ &nbsp; Fakultas & Prodi</div>
                 <div class="p-2">📚 &nbsp; Mata Kuliah</div>
                 <div class="p-2">📊 &nbsp; Laporan Akademik</div>
